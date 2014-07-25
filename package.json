@@ -1,0 +1,36 @@
+{
+  "name": "png-baker.js",
+  "description": "A Javascript client library to easily read/write custom textual data to/from PNG files in the browser.",
+  "main": "dist/png-baker.min.js",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "npm install; gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toolness/png-baker.js"
+  },
+  "author": "Atul Varma / Joe Curlee",
+  "license": "CC0 1.0 Universal",
+  "bugs": {
+    "url": "https://github.com/toolness/png-baker.js/Issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "^1.7.1",
+    "gulp": "^3.8.5",
+    "gulp-browserify": "^0.5.0",
+    "gulp-coffee": "^2.0.1",
+    "gulp-coffeelint": "^0.3.3",
+    "gulp-express-service": "^1.2.3",
+    "gulp-header": "^1.0.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-shell": "^0.2.7",
+    "gulp-uglify": "^0.3.1",
+    "jquery": "~2.1.1",
+    "less": "^1.7.3",
+    "openbadges-bakery": "~1.0.2",
+    "qunitjs": "^1.14.0"
+  }
+}

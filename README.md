@@ -1,3 +1,6 @@
+# png-baker.js
+---
+
 **png-baker.js** is a small (1.3k minified and gzipped) library that
 makes it easy to read and write custom textual data in PNG files from
 the browser.
@@ -12,6 +15,7 @@ It has been verified to work on Internet Explorer 10, Chrome 30, Opera 12,
 Safari 6, and Firefox 24.
 
 ## Usage
+---
 
 ```javascript
 // dot courtesy of http://en.wikipedia.org/wiki/Data_URI_scheme
@@ -31,7 +35,22 @@ img.src = URL.createObjectURL(baker.toBlob());
 document.body.appendChild(img);
 ```
 
+## Installation
+---
+
+`npm install https://github.com/toolness/png-baker.js`
+
+## Development
+---
+
+After cloning this repo:
+
+`npm start`
+
+This will install requirements and then use gulp to compile the code.
+
 ## Limitations
+---
 
 * Part of the reason this library is relatively small is because it
   completely ignores actual image data. Of course, this is also a
@@ -57,6 +76,7 @@ document.body.appendChild(img);
   and use [navigator.msSaveOrOpenBlob()][ie10fix].
 
 ## License
+---
 
 Public Domain [CC0 1.0 Universal][cczero].
 
