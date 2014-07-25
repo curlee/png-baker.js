@@ -49,6 +49,12 @@ After cloning this repo:
 
 This will install requirements and then use gulp to compile the code.
 
+### Compiling code
+
+To compile the code:
+
+`gulp`
+
 ## Limitations
 ---
 
