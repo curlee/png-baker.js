@@ -38,7 +38,7 @@ document.body.appendChild(img);
 ## Installation
 ---
 
-`npm install https://github.com/toolness/png-baker.js`
+`npm install git://github.com/curlee/png-baker.js.git`
 
 ## Development
 ---
