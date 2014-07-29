@@ -55,8 +55,6 @@ class PNGBaker
     if chunkCRC != ourCRC
       throw new Error "CRC mismatch for chunk type " + chunkType
     
-    console.log chunkType
-    
     if chunkType == 'tEXt'
       @_readTextChunk chunkBytes
     else if chunkType == 'iTXt'
