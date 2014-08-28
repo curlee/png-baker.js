@@ -11,6 +11,9 @@ Require some libs.
     header = require 'gulp-header'
     rename = require 'gulp-rename'
     uglify = require 'gulp-uglify'
+    license = require 'gulp-license'
+    gzip = require 'gulp-gzip'
+    runSequence = require 'run-sequence'
     pkg = require path.join __dirname, 'package.json'
 
 Create the banner for insertion in headers.
@@ -53,9 +56,25 @@ Call `lint`, then compile coffeescript to JS.
       ).pipe(
         coffee()
       ).pipe(
-        header banner, { pkg: pkg }
+        uglify()
+      ).pipe(
+        gzip()
       ).pipe(
         rename "png-baker.min.js"
+      ).pipe(
+        gulp.dest paths.dist
+      )
+
+## write_license
+-----
+
+Write license to header of compiled js.
+
+    gulp.task 'write_license', ()->
+      return gulp.src(
+        path.join paths.dist, 'png-baker.min.js'
+      ).pipe(
+        license pkg.license, {tiny: true, organization: pkg.organization}
       ).pipe(
         gulp.dest paths.dist
       )
@@ -63,6 +82,14 @@ Call `lint`, then compile coffeescript to JS.
 ## default
 -----
 
-Default gulp task. Calls `compile`.
+Default gulp task. Calls `compile`, then `write_license`.
 
-    gulp.task 'default', ['compile']
+    gulp.task 'default', ()->
+    runSequence(
+      [
+        'compile'
+      ],
+      [
+        'write_license'
+      ]
+    )
