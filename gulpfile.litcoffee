@@ -12,7 +12,6 @@ Require some libs.
     rename = require 'gulp-rename'
     uglify = require 'gulp-uglify'
     license = require 'gulp-license'
-    gzip = require 'gulp-gzip'
     runSequence = require 'run-sequence'
     pkg = require path.join __dirname, 'package.json'
 
@@ -57,8 +56,6 @@ Call `lint`, then compile coffeescript to JS.
         coffee()
       ).pipe(
         uglify()
-      ).pipe(
-        gzip()
       ).pipe(
         rename "png-baker.min.js"
       ).pipe(
