@@ -2,7 +2,7 @@
   "name": "png-baker.js",
   "description": "A Javascript client library to easily read/write custom textual data to/from PNG files in the browser.",
   "main": "dist/png-baker.min.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "npm install; gulp"
