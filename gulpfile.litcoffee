@@ -30,37 +30,27 @@ Set up paths.
       coffeescript: path.join '.', 'src', '**', '*.litcoffee'
       dist: path.join '.', 'dist'
 
-## lint
------
-
-Run lint on coffeescript files.
-
-    gulp.task 'lint', ()->
-      gulp.src(
-        paths.coffeescript
-      ).pipe(
-        coffeelint()
-      ).pipe(
-        coffeelint.reporter 'fail'
-      )
-
 ## compile
 -----
 
 Call `lint`, then compile coffeescript to JS.
 
     gulp.task 'compile', ['lint'], ()->
-      return gulp.src(
-        paths.coffeescript
-      ).pipe(
-        coffee()
-      ).pipe(
-        uglify()
-      ).pipe(
-        rename "png-baker.min.js"
-      ).pipe(
-        gulp.dest paths.dist
-      )
+      return gulp.src paths.coffeescript
+      .pipe coffee()
+      .pipe uglify()
+      .pipe rename "png-baker.min.js"
+      .pipe gulp.dest paths.dist
+
+## lint
+-----
+
+Run lint on coffeescript files.
+
+    gulp.task 'lint', ()->
+      gulp.src paths.coffeescript
+      .pipe coffeelint()
+      .pipe coffeelint.reporter 'fail'
 
 ## write_license
 -----
@@ -68,13 +58,9 @@ Call `lint`, then compile coffeescript to JS.
 Write license to header of compiled js.
 
     gulp.task 'write_license', ()->
-      return gulp.src(
-        path.join paths.dist, 'png-baker.min.js'
-      ).pipe(
-        license pkg.license, {tiny: true, organization: pkg.organization}
-      ).pipe(
-        gulp.dest paths.dist
-      )
+      return gulp.src path.join paths.dist, 'png-baker.min.js'
+      .pipe license pkg.license, {tiny: true, organization: pkg.organization}
+      .pipe gulp.dest paths.dist
 
 ## default
 -----
@@ -83,10 +69,6 @@ Default gulp task. Calls `compile`, then `write_license`.
 
     gulp.task 'default', ()->
     runSequence(
-      [
-        'compile'
-      ],
-      [
-        'write_license'
-      ]
+      'compile'
+      'write_license'
     )
